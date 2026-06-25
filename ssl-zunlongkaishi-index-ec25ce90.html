@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>尊龙凯时 · 简明指引</title>
+  <style>
+    /* 基础重置 & 字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f4f6fa;
+      color: #1f2937;
+      line-height: 1.7;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* 深色主视觉区 */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      background: linear-gradient(145deg, #0b1a2e 0%, #1a2f44 100%);
+      border-radius: 2rem;
+      padding: 4rem 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 30, 0.4);
+      color: #f0f4fa;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.85;
+      font-weight: 300;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 1.5rem;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #b3d4fc;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* 正文容器 */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 20, 30, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #e9edf2;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px -8px rgba(0, 30, 50, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #3b4b5e;
+      margin-bottom: 0.8rem;
+    }
+
+    .card .icon-em {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    /* 适合人群 + 提示区域（组合卡片） */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 680px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-block {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid #e9edf2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .info-block h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #dce3ec;
+    }
+
+    .info-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-block li {
+      margin-bottom: 0.55rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .info-block li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #2f6b9e;
+      font-weight: 700;
+    }
+
+    .info-block .highlight-bg {
+      background: #f0f5fe;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      border-left: 4px solid #2f6b9e;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem 2rem 2rem 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e9edf2;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      position: relative;
+    }
+
+    .link-paragraph p {
+      margin-bottom: 1rem;
+    }
+
+    .link-paragraph p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #1f6cb0;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.2s;
+    }
+
+    a:hover {
+      color: #0a3b66;
+      border-bottom-color: #0a3b66;
+    }
+
+    /* 引用/FAQ摘要 */
+    .faq-digest {
+      background: #eef2f7;
+      border-radius: 1.5rem;
+      padding: 1.6rem 2rem;
+      margin-top: 1.5rem;
+      border: 1px solid #dce4ee;
+    }
+
+    .faq-digest summary {
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #1f3a57;
+      padding: 0.25rem 0;
+    }
+
+    .faq-digest p {
+      margin-top: 0.75rem;
+      color: #2b4057;
+      font-size: 0.95rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce4ee;
+      margin: 1.8rem 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7e93;
+      margin-top: 3.5rem;
+      border-top: 1px solid #dbe1ea;
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>简明指南 · 尊龙凯时</h1>
+  <div class="tagline">
+    信息卡片式介绍 &nbsp;|&nbsp; 实用提醒 · 温和直达
+  </div>
+  <div class="badge">✦ 访问前请注意 · 本篇从简指引</div>
+</div>
+
+<div class="content">
+
+  <!-- 主视觉卡片：用途 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3><span class="icon-em">🖥️</span> 平台定位</h3>
+      <p>专注于提供线上休闲与互动体验的综合性站点，界面简洁、功能分区清晰。无论是信息浏览还是轻度娱乐，都经过合理编排。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon-em">🔐</span> 访问提示</h3>
+      <p>建议使用主流浏览器的最新版本，并确保网络环境稳定。初次访问时可先浏览常见问题区域，有助于快速了解整体布局。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon-em">🧭</span> 日常使用</h3>
+      <p>站内设有分类导航和搜索辅助，方便查找感兴趣的内容。保持理性用时，合理安排线上与线下生活节奏。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 重要提醒（两列） -->
+  <div class="two-col">
+    <div class="info-block">
+      <h3>🙋 适合这样的你</h3>
+      <ul>
+        <li>希望获得线上综合信息与轻互动体验的成年人</li>
+        <li>注重界面直观、操作路径清晰的用户</li>
+        <li>对站内内容有明确需求，并愿意遵守平台规则的访客</li>
+        <li>偶尔放松、不希望过度沉迷的理性使用者</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>⚠️ 访问提醒</h3>
+      <ul>
+        <li>请确认自己已满足当地法定成年年龄</li>
+        <li>保管好个人账号信息，避免在公共设备上保存密码</li>
+        <li>如遇加载异常，可尝试清理缓存或稍后重试</li>
+        <li>任何线上行为都请保持节制与清醒判断</li>
+      </ul>
+      <div class="highlight-bg">
+        💡 如果你不确定如何使用，不妨先从站内的“帮助中心”或“指南”部分开始。
+      </div>
+    </div>
+  </div>
+
+  <!-- 自然链接段落 (核心 a 标签嵌入) -->
+  <div class="link-paragraph">
+    <p>
+      当你准备探索线上休闲与资讯类服务时，<a href="https://ssl-zunlongkaishi.com">尊龙凯时</a>提供了一个功能分区清晰、更新较为稳定的选择。从内容分类到个人中心，每一块都经过基础的设计考量，让新访客不至于感到无所适从。
+    </p>
+    <p>
+      许多用户反馈，首次访问时先花几分钟浏览页面顶部的栏目导览，就能对整体结构形成大致印象。如果你只是希望快速获取某项信息，也可以直接使用站内的搜索功能。保持开放而审慎的心态，往往能让线上体验更加顺畅。
+    </p>
+    <p>
+      最后再提醒一句：网络世界信息繁杂，请根据自身需求筛选内容，并合理分配时间。<a href="https://ssl-zunlongkaishi.com">尊龙凯时</a>本身仅作为工具与平台存在，如何使用、投入多少精力，始终取决于你自己的选择。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 (简短) -->
+  <details class="faq-digest">
+    <summary>❓ 常见疑问摘要（点击展开）</summary>
+    <p>
+      <strong>Q：</strong> 访问时页面加载较慢怎么办？<br>
+      <strong>A：</strong> 可尝试切换网络环境或关闭后台占用带宽的应用；同时确认浏览器版本为近两年内更新。<br><br>
+      <strong>Q：</strong> 是否需要注册才能浏览大部分内容？<br>
+      <strong>A：</strong> 部分基础信息与导航可以直接查看，但个别互动或个性化功能可能需要创建账号。注册时请使用真实且有效的邮箱。<br><br>
+      <strong>Q：</strong> 如何联系站方反馈问题？<br>
+      <strong>A：</strong> 通常页面底部或“关于我们”区域会提供联系方式；也可通过站内消息系统（若支持）进行沟通。
+    </p>
+  </details>
+
+  <hr>
+
+  <div class="footer-note">
+    <span>本页为独立介绍页 · 内容仅供参考 · 请依据自身情况合理使用</span>
+  </div>
+
+</div>
+
+</body>
+</html>
